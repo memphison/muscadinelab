@@ -27,6 +27,11 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  body {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
   a { color: inherit; }
 
   .wrap {
@@ -108,14 +113,20 @@
     margin: 0;
   }
 
+  .hero-text {
+    position: relative;
+    z-index: 1;
+  }
+
   .vine {
     position: absolute;
-    right: -60px;
-    top: -40px;
-    width: 380px;
-    height: 380px;
-    opacity: 0.9;
-    z-index: 1;
+    right: -30px;
+    top: -30px;
+    width: 300px;
+    height: 300px;
+    opacity: 0.8;
+    z-index: 0;
+    pointer-events: none;
   }
 
   .stats {
@@ -297,21 +308,23 @@
 </header>
 
 <section class="hero">
-  <svg class="vine" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <path d="M170 10 C 140 40, 150 80, 110 100 C 75 120, 80 150, 50 175" stroke="#6E2A46" stroke-width="2" fill="none" opacity="0.7"/>
-    <circle cx="108" cy="98" r="9" fill="#6E2A46" opacity="0.55"/>
-    <circle cx="122" cy="108" r="9" fill="#C24C74" opacity="0.5"/>
-    <circle cx="98" cy="112" r="9" fill="#C24C74" opacity="0.4"/>
-    <circle cx="112" cy="122" r="9" fill="#6E2A46" opacity="0.5"/>
-    <circle cx="130" cy="122" r="9" fill="#C24C74" opacity="0.35"/>
-    <circle cx="88" cy="128" r="9" fill="#6E2A46" opacity="0.4"/>
-    <circle cx="104" cy="136" r="9" fill="#C24C74" opacity="0.4"/>
-    <circle cx="118" cy="140" r="9" fill="#6E2A46" opacity="0.3"/>
-  </svg>
   <div class="wrap">
-    <p class="eyebrow">Savannah, GA · Websites &amp; Local Marketing</p>
-    <h1>We build what local businesses actually need.</h1>
-    <p class="lede">Websites wired into the systems you already run, and marketing that's local, efficient, and trackable. No spend for spend's sake.</p>
+    <div class="hero-text">
+      <p class="eyebrow">Savannah, GA · Websites &amp; Local Marketing</p>
+      <h1>We build what local businesses actually need.</h1>
+      <p class="lede">Websites wired into the systems you already run, and marketing that's local, efficient, and trackable. No spend for spend's sake.</p>
+    </div>
+    <svg class="vine" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M170 10 C 140 40, 150 80, 110 100 C 75 120, 80 150, 50 175" stroke="#6E2A46" stroke-width="2" fill="none" opacity="0.7"/>
+      <circle cx="108" cy="98" r="9" fill="#6E2A46" opacity="0.55"/>
+      <circle cx="122" cy="108" r="9" fill="#C24C74" opacity="0.5"/>
+      <circle cx="98" cy="112" r="9" fill="#C24C74" opacity="0.4"/>
+      <circle cx="112" cy="122" r="9" fill="#6E2A46" opacity="0.5"/>
+      <circle cx="130" cy="122" r="9" fill="#C24C74" opacity="0.35"/>
+      <circle cx="88" cy="128" r="9" fill="#6E2A46" opacity="0.4"/>
+      <circle cx="104" cy="136" r="9" fill="#C24C74" opacity="0.4"/>
+      <circle cx="118" cy="140" r="9" fill="#6E2A46" opacity="0.3"/>
+    </svg>
   </div>
 </section>
 
