@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>muscadineLab — Websites &amp; local marketing</title>
+<style>
+  :root {
+    --bg: #15101A;
+    --bg-panel: #1C1420;
+    --ink: #F4EFE9;
+    --muted: #C4B8C0;
+    --muted-dim: #8F7F8A;
+    --accent: #C24C74;
+    --accent-soft: #6E2A46;
+    --hairline: rgba(244,239,233,0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  header {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 26px;
+    padding-bottom: 26px;
+  }
+
+  .wordmark {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  .mail-pill {
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 9px 18px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .mail-pill:hover {
+    border-color: var(--accent);
+    color: var(--ink);
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero .wrap {
+    padding-top: 84px;
+    padding-bottom: 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+    color: var(--muted-dim);
+    margin: 0 0 22px;
+  }
+
+  h1 {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 0 0 22px;
+    max-width: 15ch;
+  }
+
+  .lede {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--muted);
+    max-width: 46ch;
+    margin: 0;
+  }
+
+  .vine {
+    position: absolute;
+    right: -60px;
+    top: -40px;
+    width: 380px;
+    height: 380px;
+    opacity: 0.9;
+    z-index: 1;
+  }
+
+  .stats {
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .stats .wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .stat {
+    text-align: center;
+    padding: 0 12px;
+  }
+
+  .stat + .stat {
+    border-left: 1px solid var(--hairline);
+  }
+
+  .stat .num {
+    font-family: Georgia, "Iowan Old Style", serif;
+    font-size: 1.9rem;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .stat .label {
+    font-size: 0.78rem;
+    color: var(--muted-dim);
+    line-height: 1.4;
+  }
+
+  .services {
+    padding-top: 76px;
+    padding-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: Georgia, "Iowan Old Style", serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0 0 8px;
+  }
+
+  .section-sub {
+    color: var(--muted-dim);
+    font-size: 0.95rem;
+    margin: 0 0 40px;
+  }
+
+  .service {
+    display: flex;
+    gap: 26px;
+    padding: 26px 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .service:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .service .num {
+    font-family: Georgia, "Iowan Old Style", serif;
+    color: var(--accent);
+    font-size: 1rem;
+    flex-shrink: 0;
+    width: 28px;
+    padding-top: 2px;
+  }
+
+  .service h3 {
+    margin: 0 0 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .service p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 0.96rem;
+  }
+
+  .catchall {
+    padding: 44px 0 0;
+    color: var(--muted);
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  .catchall strong {
+    color: var(--ink);
+  }
+
+  .contact {
+    margin-top: 76px;
+    background: var(--bg-panel);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .contact .wrap {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+  }
+
+  .contact h2 {
+    font-family: Georgia, "Iowan Old Style", serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    margin: 0 0 14px;
+  }
+
+  .contact p {
+    color: var(--muted);
+    margin: 0 0 28px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #17101B;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 999px;
+    font-size: 0.98rem;
+  }
+
+  .btn:hover {
+    background: #D66489;
+  }
+
+  footer .wrap {
+    padding-top: 40px;
+    padding-bottom: 48px;
+    text-align: center;
+  }
+
+  footer .wordmark {
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+
+  .closer {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0 0 18px;
+  }
+
+  .fine {
+    color: var(--muted-dim);
+    font-size: 0.78rem;
+    margin: 0;
+  }
+
+  @media (max-width: 560px) {
+    h1 { font-size: 2rem; max-width: 100%; }
+    .vine { width: 220px; height: 220px; right: -50px; top: -30px; opacity: 0.6; }
+    .stats .wrap { grid-template-columns: 1fr; row-gap: 20px; }
+    .stat + .stat { border-left: none; border-top: 1px solid var(--hairline); padding-top: 20px; }
+    .service { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="#">muscadineLab</a>
+    <a class="mail-pill" href="mailto:info@muscadinelab.com">info@muscadinelab.com</a>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="vine" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path d="M170 10 C 140 40, 150 80, 110 100 C 75 120, 80 150, 50 175" stroke="#6E2A46" stroke-width="2" fill="none" opacity="0.7"/>
+    <circle cx="108" cy="98" r="9" fill="#6E2A46" opacity="0.55"/>
+    <circle cx="122" cy="108" r="9" fill="#C24C74" opacity="0.5"/>
+    <circle cx="98" cy="112" r="9" fill="#C24C74" opacity="0.4"/>
+    <circle cx="112" cy="122" r="9" fill="#6E2A46" opacity="0.5"/>
+    <circle cx="130" cy="122" r="9" fill="#C24C74" opacity="0.35"/>
+    <circle cx="88" cy="128" r="9" fill="#6E2A46" opacity="0.4"/>
+    <circle cx="104" cy="136" r="9" fill="#C24C74" opacity="0.4"/>
+    <circle cx="118" cy="140" r="9" fill="#6E2A46" opacity="0.3"/>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">Savannah, GA · Websites &amp; Local Marketing</p>
+    <h1>We build what local businesses actually need.</h1>
+    <p class="lede">Websites wired into the systems you already run, and marketing that's local, efficient, and trackable. No spend for spend's sake.</p>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat">
+      <span class="num">1</span>
+      <span class="label">point of contact,<br>start to finish</span>
+    </div>
+    <div class="stat">
+      <span class="num">0</span>
+      <span class="label">spend for<br>spend's sake</span>
+    </div>
+    <div class="stat">
+      <span class="num">100%</span>
+      <span class="label">built for<br>your shop</span>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <h2 class="section-title">What we do</h2>
+    <p class="section-sub">Three things, done properly, rather than ten things done half-way.</p>
+
+    <div class="service">
+      <span class="num">I</span>
+      <div>
+        <h3>Websites</h3>
+        <p>Built clean and fast, then wired into whatever you already run — CRM, booking, inventory, all of it.</p>
+      </div>
+    </div>
+    <div class="service">
+      <span class="num">II</span>
+      <div>
+        <h3>Marketing</h3>
+        <p>Local, efficient, and trackable. Every dollar has to earn its place, or it doesn't get spent.</p>
+      </div>
+    </div>
+    <div class="service">
+      <span class="num">III</span>
+      <div>
+        <h3>Support</h3>
+        <p>Someone who actually answers when something breaks, changes, or just needs a second look.</p>
+      </div>
+    </div>
+
+    <p class="catchall"><strong>Not listed here?</strong> Just ask. We've (nearly) done it all.</p>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <h2>Want to learn more?</h2>
+    <p>Tell us what your shop needs. We'll tell you straight if we're a fit.</p>
+    <a class="btn" href="mailto:info@muscadinelab.com">Say hello</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="wordmark" href="#">muscadineLab</a>
+    <p class="closer">No decks. No jargon. No spend for spend's sake.</p>
+    <p class="fine">Savannah, Georgia</p>
+  </div>
+</footer>
+
+</body>
+</html>
