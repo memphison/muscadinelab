@@ -266,6 +266,83 @@
     background: #D66489;
   }
 
+  .contact-form {
+    max-width: 420px;
+    margin: 0 auto 20px;
+    text-align: left;
+  }
+
+  .field {
+    margin-bottom: 18px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--muted-dim);
+    margin-bottom: 6px;
+  }
+
+  .field input,
+  .field textarea {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 10px 12px;
+    resize: vertical;
+  }
+
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .field-error {
+    display: block;
+    color: var(--accent);
+    font-size: 0.78rem;
+    margin-top: 4px;
+  }
+
+  .contact-form button[type="submit"] {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .contact-form button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .form-success {
+    color: #8fd19e;
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .form-error {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .fallback-email {
+    color: var(--muted-dim);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  .fallback-email a {
+    color: var(--muted);
+    text-decoration: underline;
+  }
+
   footer .wrap {
     padding-top: 40px;
     padding-bottom: 48px;
@@ -380,7 +457,30 @@
   <div class="wrap">
     <h2>Want to learn more?</h2>
     <p>Tell us what your shop needs. We'll tell you straight if we're a fit.</p>
-    <a class="btn" href="mailto:info@muscadinelab.com">Say hello</a>
+
+    <div data-fs-success class="form-success"></div>
+    <div data-fs-error class="form-error"></div>
+
+    <form id="contact-form" class="contact-form">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" data-fs-field required />
+        <span data-fs-error="name" class="field-error"></span>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" data-fs-field required />
+        <span data-fs-error="email" class="field-error"></span>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" data-fs-field required></textarea>
+        <span data-fs-error="message" class="field-error"></span>
+      </div>
+      <button type="submit" class="btn" data-fs-submit-btn>Say hello</button>
+    </form>
+
+    <p class="fallback-email">Or email us directly at <a href="mailto:info@muscadinelab.com">info@muscadinelab.com</a></p>
   </div>
 </section>
 
@@ -391,6 +491,12 @@
     <p class="fine">Savannah, Georgia</p>
   </div>
 </footer>
+
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'xaeyblya' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 </html>
