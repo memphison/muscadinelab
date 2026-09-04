@@ -226,6 +226,47 @@
     color: var(--ink);
   }
 
+  .work {
+    padding-top: 68px;
+    padding-bottom: 20px;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .work-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .work-thumb {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--hairline);
+    background: var(--bg-panel);
+  }
+
+  .work-item:hover .work-thumb {
+    border-color: var(--accent);
+  }
+
+  .work-name {
+    margin: 12px 0 0;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  .work-item:hover .work-name {
+    color: var(--ink);
+  }
+
   .contact {
     margin-top: 76px;
     background: var(--bg-panel);
@@ -372,6 +413,7 @@
     .stats .wrap { grid-template-columns: 1fr; row-gap: 20px; }
     .stat + .stat { border-left: none; border-top: 1px solid var(--hairline); padding-top: 20px; }
     .service { gap: 16px; }
+    .work-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -450,6 +492,22 @@
     </div>
 
     <p class="catchall"><strong>Not listed here?</strong> Just ask. We've (nearly) done it all.</p>
+  </div>
+</section>
+
+<section class="work">
+  <div class="wrap">
+    <h2 class="section-title">See a couple of our latest sites</h2>
+    <div class="work-grid">
+      <a class="work-item" href="https://autobahnofsavannah.com" target="_blank" rel="noopener">
+        <img class="work-thumb" src="/images/autobahn_thumbnail.png" alt="Autobahn Service Center website preview" loading="lazy">
+        <p class="work-name">Autobahn Service Center</p>
+      </a>
+      <a class="work-item" href="https://gothicwalks.com" target="_blank" rel="noopener">
+        <img class="work-thumb" src="/images/gothicwalks_thumbnail.png" alt="Gothic Walks website preview" loading="lazy">
+        <p class="work-name">Gothic Walks</p>
+      </a>
+    </div>
   </div>
 </section>
 
